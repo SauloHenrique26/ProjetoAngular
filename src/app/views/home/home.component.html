@@ -1,0 +1,17 @@
+<p>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row >
+        <span>  LISTA DE TAREFAS</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Tarefas</button>
+            <button mat-menu-item>Vídeos</button>
+          </mat-menu>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+</p>
+<app-list></app-list>
+  

@@ -1,0 +1,22 @@
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Não Feita">
+        <div fxLayout="column" fxLayoutAlign="space-around center" style="padding: 2%;"> 
+            <div *ngIf = " dataSource.indexOf(dataSource.status) === 'Em Andamento' ">
+                <div *ngFor = "let itens of dataSource" style="margin: 1%;">
+                    <mat-card>{{itens.tarefa}}</mat-card>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+
+    <mat-tab label="Feita">
+        <div fxLayout="column" fxLayoutAlign="space-around start" style="padding: 2%;"> 
+            
+            <mat-card>Simple card</mat-card>
+ 
+
+       
+        </div>
+    </mat-tab>
+</mat-tab-group>
