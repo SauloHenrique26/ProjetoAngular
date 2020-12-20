@@ -13,6 +13,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { VideosComponent } from './views/videos/videos.component';
+import { DialogComponent } from './views/home/dialog/dialog.component';
+
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { VideosComponent } from './views/videos/videos.component';
     AppComponent,
     HomeComponent,
     ListComponent,
-    VideosComponent
+    VideosComponent,
+    DialogComponent
+   
   ],
   imports: [
     HttpClientModule,

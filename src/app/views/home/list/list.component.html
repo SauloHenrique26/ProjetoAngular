@@ -4,13 +4,13 @@
 <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Não Feita">
         <div fxLayout="column" fxLayoutAlign="space-around center" style="padding: 2%;" >   
-           <div *ngFor = "let itens of dataSourceok" style="margin: 1%;">
+           <div *ngFor = "let itens of dataSourcenok" style="margin: 1%;">
                 <!--<div *ngIf = "!itens.status"> -->
                     <mat-card class="example-card">{{itens.tarefa}}<span class="example-spacer" ></span>                       
-                        <button mat-mini-fab (click)="okbtn(itens.id,itens.tarefa,itens.observ)" class="example-button" style="margin: 0.2%;" >
+                        <button mat-mini-fab (click)="okbtn(itens)" class="example-button" style="margin: 0.2%;" >
                             <mat-icon>done</mat-icon>
                         </button>
-                        <button mat-mini-fab color="primary" style="margin: 0.2%;">
+                        <button mat-mini-fab color="primary" (click)="openDialog()" style="margin: 0.2%;">
                             <mat-icon>edit</mat-icon>
                         </button>
                         <button mat-mini-fab color="warn" style="margin: 0.2%;" >
@@ -25,20 +25,20 @@
 
     <mat-tab label="Feita" >        
         <div fxLayout="column" fxLayoutAlign="space-around center" style="padding: 2%;">   
-            <div *ngFor = "let itens of dataSource" style="margin: 1%;">
-                <div *ngIf = "itens.status">
-                    <mat-card class="example-card">{{itens.tarefa}}<span class="example-spacer" ></span> 
-                        <button mat-mini-fab color="primary" style="margin: 0.2%;" (click)="nokbtn(itens);">
-                            <mat-icon>sentiment_very_dissatisfied</mat-icon>
-                        </button>
-                        <button mat-mini-fab color="accent" style="margin: 0.2%;">
-                            <mat-icon>rule</mat-icon>
-                        </button>
-                        <button mat-mini-fab color="warn" style="margin: 0.2%;" >
-                            <mat-icon>delete</mat-icon>
-                        </button>                
-                    </mat-card>
-                </div>                
+            <div *ngFor = "let itens of dataSourceok" style="margin: 1%;">
+
+                <mat-card class="example-card">{{itens.tarefa}}<span class="example-spacer" ></span> 
+                    <button mat-mini-fab color="primary" style="margin: 0.2%;" (click)="nokbtn(itens);">
+                        <mat-icon>sentiment_very_dissatisfied</mat-icon>
+                    </button>
+                    <button mat-mini-fab color="accent" style="margin: 0.2%;">
+                        <mat-icon>rule</mat-icon>
+                    </button>
+                    <button mat-mini-fab color="warn" style="margin: 0.2%;" >
+                        <mat-icon>delete</mat-icon>
+                    </button>                
+                </mat-card>
+              
             </div>    
         </div>        
     </mat-tab>

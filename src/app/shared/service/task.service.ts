@@ -12,7 +12,7 @@ export class TaskServices {
   httpOptions={
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Access-Control-Request-Method': 'PUT',
+      
       'Referrer-Policy': 'origin',
     })
   };
@@ -25,17 +25,19 @@ export class TaskServices {
     return this.http.get<TasksModel>(`${this.apiUrl}`,this.httpOptions);
   }
   
-  public putStatusTask(idc: number,tarefa:String, observ:String,horai:Date, stat:boolean){ 
+  public putStatusTask(tasko: TasksModel){ 
     const chgstat= {
-      id: idc,
-      tarefa: tarefa,
-      observ: observ,
-      hora: '2020-11-22T17:51:29-03:00',
-      status: stat
+      id: tasko.id,
+      tarefa: tasko.tarefa,
+      observ: tasko.observ,
+      hora: new Date(),
+      status: true
     };
-    console.log(`${this.apiUrl}${idc}`,chgstat);
-    return this.http.put<TasksModel>(`${this.apiUrl}${idc}/`,chgstat,this.httpOptions)    
+    console.log(`${this.apiUrl}${tasko.id}`,chgstat);
+    return this.http.put<TasksModel>(`${this.apiUrl}${tasko.id}/`,chgstat,this.httpOptions)    
   }
+  
+
 
   public nOkStatusTask(taskn: TasksModel){ 
     const chgstat= {
