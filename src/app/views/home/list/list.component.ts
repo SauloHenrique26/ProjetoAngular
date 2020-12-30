@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TasksModel } from 'src/app/shared/model/tasks.model';
 import { TaskServices } from 'src/app/shared/service/task.service';
+import { DialogComponent } from '../dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { validateHorizontalPosition } from '@angular/cdk/overlay';
 
 
 
@@ -12,19 +15,26 @@ import { TaskServices } from 'src/app/shared/service/task.service';
 })
 export class ListComponent implements OnInit {
 
-
+  
   dataSource: any;
   dataSourceok: any;
   dataSourcenok: any;
   tasksModel: TasksModel;
   
-  constructor(public taskservice: TaskServices){ 
+  
+  constructor(
+    public taskservice: TaskServices,
+    private matDialog: MatDialog
+    
+    ){ 
 
     this.dataSource = [];
     this.dataSourceok = [];
     this.dataSourcenok = [];
     this.tasksModel = new TasksModel()  
     this.getTasks(); 
+    
+    
     
   };
 
@@ -90,14 +100,20 @@ export class ListComponent implements OnInit {
   };
 
 
-  openDialog(){
-    
+  openDialog(id_t: number){
+ 
+    const userModal = this.matDialog.open(DialogComponent,{
+      width: '700px', 
+      data: {title: "FormEdit", task: id_t}
+    });
+ 
   }
 
 
 }
 
-  
+
+
   
 
 
